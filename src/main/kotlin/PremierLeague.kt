@@ -1,11 +1,27 @@
 fun main(): Unit {
     val liverpool = Liverpool(70)
+    val manchesterCity = ManchesterCity(90)
+    val manchesterUnited = ManchesterUnited(50)
 
     with(liverpool) {
         println("Team Name: ${liverpool.teamName}")
         println("Ranking: ${liverpool.ranking}")
         println("Victory Points: ${liverpool.victoryPoints}")
-        println(haveLowRank())
+        println("Have a low rank? ${haveLowRank()}")
+    }
+
+    with(manchesterCity) {
+        println("Team Name: ${manchesterCity.teamName}")
+        println("Ranking: ${manchesterCity.ranking}")
+        println("Victory Points: ${manchesterCity.victoryPoints}")
+        println("Have a low rank? ${haveLowRank()}")
+    }
+
+    with(manchesterUnited) {
+        println("Team Name: ${manchesterUnited.teamName}")
+        println("Ranking: ${manchesterUnited.ranking}")
+        println("Victory Points: ${manchesterUnited.victoryPoints}")
+        println("Have a low rank? ${haveLowRank()}")
     }
 }
 /*
@@ -35,10 +51,16 @@ class Liverpool(otherTeamVictoryPoints: Int) : PremierLeague(otherTeamVictoryPoi
     override val victoryPoints = 79
 }
 
-class ManchesterCity(otherTeamVictoryPoints: Int) : PremierLeague(otherTeamVictoryPoints) {
-    override val teamName: String
-        get() = TODO("Not yet implemented")
-    override val ranking: Int
-        get() =
-    override val victoryPoints =
+open class ManchesterCity(otherTeamVictoryPoints: Int) : PremierLeague(otherTeamVictoryPoints) {
+    override val teamName = "ManchesterCity"
+    override val ranking = 1
+    override val victoryPoints = 80
+}
+
+class ManchesterUnited(
+    otherTeamVictoryPoints: Int) : ManchesterCity(otherTeamVictoryPoints) {
+    override val teamName = "ManchesterUnited"
+    override val ranking = 6
+    override val victoryPoints = 54
+
 }
