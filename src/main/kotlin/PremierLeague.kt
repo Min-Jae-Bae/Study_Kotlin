@@ -4,15 +4,17 @@ fun main(): Unit {
     val manchesterUnited = ManchesterUnited(50, "You get 3 points!")
 
     with(liverpool) {
-        println("Team Name: ${liverpool.teamName}")
+        println("\nTeam Name: ${liverpool.teamName}")
         println("Ranking: ${liverpool.ranking}")
         println("Victory Points: ${liverpool.victoryPoints}")
+        println("${haveLowRank()}")
+        getLowRank()
         println("Congratulation: ${victory()}")
         println("Have a low rank? ${haveLowRank()}")
     }
 
     with(manchesterCity) {
-        println("Team Name: ${manchesterCity.teamName}")
+        println("\nTeam Name: ${manchesterCity.teamName}")
         println("Ranking: ${manchesterCity.ranking}")
         println("Victory Points: ${manchesterCity.victoryPoints}")
         println("Congratulation: ${victory()}")
@@ -20,7 +22,7 @@ fun main(): Unit {
     }
 
     with(manchesterUnited) {
-        println("Team Name: ${manchesterUnited.teamName}")
+        println("\nTeam Name: ${manchesterUnited.teamName}")
         println("Ranking: ${manchesterUnited.ranking}")
         println("Victory Points: ${manchesterUnited.victoryPoints}")
         println("Congratulation: ${victory()}")
@@ -44,6 +46,16 @@ abstract class PremierLeague(private var otherTeamVictoryPoints: Int) {
         return otherTeamVictoryPoints < victoryPoints
 
     }
+
+    fun getLowRank(): Unit {
+        if (otherTeamVictoryPoints < victoryPoints) {
+            println("Get low Rank !")
+        } else {
+            println("Get hight Rank !")
+        }
+
+    }
+
     abstract fun victory() : String
 }
 
